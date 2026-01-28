@@ -125,7 +125,7 @@ npm start
 doraemon-dice-dimension/
 ├── app/
 │   ├── page.js           # Main game board
-│   ├── logic.js          # Main game Logic
+│   ├── logic/            # Main game Logic
 │   ├── help/
 │   │   └── page.js       # Game guide/help page
 │   ├── layout.js         # Root layout

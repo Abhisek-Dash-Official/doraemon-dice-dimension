@@ -70,16 +70,19 @@ export default function CharectorInfo({ charectorName }) {
           icon={<Flame />}
           subtitle="Class: Berserker"
         />
+
         <div className="space-y-3 text-gray-200">
           <p>
-            <span className="text-red-300 font-semibold">Passive:</span> Rage
-            State Activation
+            <span className="text-red-300 font-semibold">Passive:</span> Instant
+            Rage State
           </p>
+
           <p>Triggered when displaced by Time Machine Rift</p>
+
           <InfoBox
             color="orange"
             icon={<Flame />}
-            text="Next Turn: Base Movement +2 Squares"
+            text="After Rift Teleport: Instantly Move +2 Bonus Squares"
           />
         </div>
       </div>
@@ -106,7 +109,12 @@ export default function CharectorInfo({ charectorName }) {
           <InfoBox
             color="yellow"
             icon={<Shield />}
-            text="Usage: Once per mission"
+            text="Unlimited activations per mission (Cooldown: 5 turn)"
+          />
+          <InfoBox
+            color="green"
+            icon={<Coins />}
+            text="Starting Bonus: +1 Gadget Point"
           />
         </div>
       </div>
@@ -130,7 +138,11 @@ export default function CharectorInfo({ charectorName }) {
             Probability Inverter
           </p>
           <p>Multiply dice result by -1 to reverse movement</p>
-          <InfoBox color="indigo" icon={<Zap />} text="Unlimited usage" />
+          <InfoBox
+            color="indigo"
+            icon={<Zap />}
+            text="Unlimited activations per mission (Cooldown: 5 turn"
+          />
         </div>
       </div>
     );

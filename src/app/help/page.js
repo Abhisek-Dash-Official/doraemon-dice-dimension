@@ -286,12 +286,16 @@ export default function HelpPage() {
                                     <Flame className="w-6 h-6 text-red-400" />
                                 </div>
                             </div>
+
                             <div className="space-y-3 text-gray-300">
-                                <p><span className="text-red-400 font-semibold">Passive:</span> Rage State Activation</p>
+                                <p><span className="text-red-400 font-semibold">Passive:</span> Instant Rage State</p>
                                 <p>Triggered when displaced by Time Machine Rift</p>
+
                                 <div className="flex items-center gap-2 bg-orange-500/20 rounded-lg p-3 border border-orange-500/30">
                                     <Flame className="w-5 h-5 text-orange-400" />
-                                    <span className="text-orange-400 font-semibold">Next Turn: Base Movement + 2 Bonus Squares</span>
+                                    <span className="text-orange-400 font-semibold">
+                                        After Rift Teleport: Instantly Move +2 Bonus Squares
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -307,15 +311,30 @@ export default function HelpPage() {
                                     <Coins className="w-6 h-6 text-yellow-400" />
                                 </div>
                             </div>
+
                             <div className="space-y-3 text-gray-300">
-                                <p><span className="text-yellow-400 font-semibold">Ability:</span> Financial Override</p>
+                                <p>
+                                    <span className="text-yellow-400 font-semibold">Ability:</span> Financial Override
+                                </p>
                                 <p>Nullify ONE Anywhere Door or Time Machine Rift effect</p>
+
                                 <div className="flex items-center gap-2 bg-yellow-500/20 rounded-lg p-3 border border-yellow-500/30">
                                     <Shield className="w-5 h-5 text-yellow-400" />
-                                    <span className="text-yellow-400 font-semibold">Usage: Single activation per mission</span>
+                                    <span className="text-yellow-400 font-semibold">
+                                        Usage: Unlimited activations per mission (Cooldown: 5 turn)
+                                    </span>
                                 </div>
+
+                                <div className="flex items-center gap-2 bg-green-500/20 rounded-lg p-3 border border-green-500/30">
+                                    <Coins className="w-5 h-5 text-green-400" />
+                                    <span className="text-green-400 font-semibold">
+                                        Starting Bonus: +1 Gadget Point
+                                    </span>
+                                </div>
+
                             </div>
                         </div>
+
                         {/* Dekisugi */}
                         <div className="bg-linear-to-r from-indigo-500/10 to-indigo-600/5 rounded-xl p-6 border border-indigo-500/30 hover:border-indigo-500/50 transition-all">
                             <div className="flex items-start justify-between mb-4">
@@ -332,7 +351,7 @@ export default function HelpPage() {
                                 <p>Can multiply his dice roll result by -1 to reverse the outcome</p>
                                 <div className="flex items-center gap-2 bg-indigo-500/20 rounded-lg p-3 border border-indigo-500/30">
                                     <Zap className="w-5 h-5 text-indigo-400" />
-                                    <span className="text-indigo-400 font-semibold">Usage: Unlimited activations per mission</span>
+                                    <span className="text-indigo-400 font-semibold">Usage: Unlimited activations per mission (Cooldown: 5 turn)</span>
                                 </div>
                             </div>
                         </div>
