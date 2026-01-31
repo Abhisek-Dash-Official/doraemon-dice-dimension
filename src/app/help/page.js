@@ -4,10 +4,17 @@ import {
     Target, Coins, Shield, Flame, Heart, Star, AlertTriangle,
     CheckCircle2, XCircle
 } from 'lucide-react';
+import Link from 'next/link';
+
+export const metadata = {
+    title: "Help | Doraemon Dice Dimension",
+    description: "Master the game mechanics and rescue Doraemon's stolen gadgets in this comprehensive game guide for Doraemon Dice Dimension.",
+};
 
 export default function HelpPage() {
     return (
         <div className="min-h-screen bg-linear-to-br from-slate-900 via-blue-900 to-purple-900 text-white">
+
             {/* Animated Background */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -17,8 +24,8 @@ export default function HelpPage() {
             <div className="relative container mx-auto px-4 py-12 max-w-6xl">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-linear-to-br from-blue-500 to-purple-600 rounded-2xl mb-6 shadow-lg shadow-blue-500/50">
-                        <Gamepad2 className="w-10 h-10" />
+                    <div className="inline-flex items-center justify-center w-25 h-25 bg-linear-to-br from-blue-500 to-purple-600 rounded-full mb-6 shadow-lg shadow-blue-500/50">
+                        <img src="/logo2.png" alt="Logo" />
                     </div>
                     <h1 className="text-6xl font-black mb-4 bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                         GAME GUIDE
@@ -157,7 +164,7 @@ export default function HelpPage() {
                             </div>
                             <div className="flex items-center gap-4 text-lg">
                                 <span className="text-gray-400">Net Movement:</span>
-                                <span className="text-purple-400 font-bold">6 - 3 = 3 squares forward</span>
+                                <span className="text-purple-400 font-bold">6 * 2 - 3 = 9 squares forward</span>
                             </div>
                         </div>
                     </div>
@@ -316,7 +323,7 @@ export default function HelpPage() {
                                 <p>
                                     <span className="text-yellow-400 font-semibold">Ability:</span> Financial Override
                                 </p>
-                                <p>Nullify ONE Anywhere Door or Time Machine Rift effect</p>
+                                <p>Nullify ONE Time Machine Rift effect</p>
 
                                 <div className="flex items-center gap-2 bg-yellow-500/20 rounded-lg p-3 border border-yellow-500/30">
                                     <Shield className="w-5 h-5 text-yellow-400" />
@@ -426,10 +433,10 @@ export default function HelpPage() {
 
                 {/* Back Button */}
                 <div className="text-center">
-                    <a href="/" className="group inline-flex items-center gap-3 bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-blue-500/50 transition-all transform hover:scale-105">
+                    <Link href="/" className="group inline-flex items-center gap-3 bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-blue-500/50 transition-all transform hover:scale-105">
                         <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                         Return to Command Center
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -7,3 +7,58 @@ html {
     box-sizing: border-box;
     overscroll-behavior: none;
 }
+
+.custom-toast {
+    background: rgba(20, 20, 40, 0.85) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 16px !important;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    color: white !important;
+    font-weight: bold;
+}
+
+.custom-toast-body {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.custom-toast-progress {
+    background: linear-gradient(90deg, cyan, purple);
+}
+
+/* Main toast box */
+.mission-error-container {
+    background: linear-gradient(135deg, #090014, #1a001f) !important;
+    border: 1px solid #ff003c;
+    border-radius: 14px;
+    box-shadow: 0 0 25px rgba(255, 0, 60, 0.6);
+    font-family: "Orbitron", monospace;
+    backdrop-filter: blur(10px);
+    padding: 12px 16px;
+}
+
+/* Title */
+.mission-error-title {
+    color: #ff003c;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+/* Body text */
+.mission-error-text {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Progress bar */
+.mission-error-progress {
+    background: linear-gradient(90deg, #ff003c, #ff9900);
+    height: 2px;
+}

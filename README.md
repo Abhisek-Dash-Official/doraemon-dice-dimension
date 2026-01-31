@@ -5,7 +5,8 @@
 **Doraemon Dice Dimension is a wildly unpredictable reimagining of the classic board game _Snakes and Ladders_. Inspired by the beloved anime _Doraemon_ , this game introduces time-warping gadgets, dual-dice chaos, and strategic unpredictability into a nostalgic childhood favorite.**
 
 <p align="center">
-  <img src="public/logo.png" width="250" />
+  <img src="public/logo2.png" width="250" style="margin-right: 20px;" />
+  <img src="public/logo.png"  width="250" />
 </p>
 
 </div>
@@ -43,8 +44,8 @@ Your mission: Navigate through time rifts and dimensional portals, collecting ga
 | **Nobita**   | Bad Luck Survivor    | Random start (1-10) + 1 Gadget Point bonus           |
 | **Shizuka**  | Tactical Coordinator | Teleport any ahead player to her position (3x/game)  |
 | **Gian**     | Berserker            | Rage Mode: +2 squares next turn after hitting a Rift |
-| **Suneo**    | Strategic Investor   | Nullify ONE Door/Rift effect (1x/game)               |
-| **Dekisugi** | Mathematical Genius  | Invert dice result (×-1) unlimited times             |
+| **Suneo**    | Strategic Investor   | Nullify ONE Rift (Unlimited uses with cooldown)      |
+| **Dekisugi** | Mathematical Genius  | Invert dice result (×-1) unlimited with cooldown     |
 
 ### Victory Conditions
 
@@ -52,6 +53,30 @@ Your mission: Navigate through time rifts and dimensional portals, collecting ga
 - **Winner**: Player with the **MOST Gadget Points**
 - **Time Limit**: 60 minutes or mission fails
 - **Teamwork**: All players must reach the goal to rescue Doraemon
+
+## 📸 Screenshots
+
+### Home Page
+
+![home1](SCREENSHOTS/screenshot1.png)
+
+![home2](SCREENSHOTS/screenshot2.png)
+
+### Help Page
+
+![help page](SCREENSHOTS/help.png)
+
+## 🧩 Special Tiles
+
+| Tile Type     | Effect                   |
+| ------------- | ------------------------ |
+| Anywhere Door | Jump forward             |
+| Time Rift     | Forced backward movement |
+| Bomb          | Reset to Square 1        |
+| Bamboo Copter | Jump +10 squares         |
+| Big Light     | Double next movement     |
+| Small Light   | Half next movement       |
+| Easter Egg    | Hidden surprise          |
 
 ## Game Modes
 
@@ -135,8 +160,11 @@ doraemon-dice-dimension/
 │   └── DesktopOnlyWrapper.js
 ├── public/
 │   └── logo.png          # Game logo
+│   └── logo2.png         # Game logo 2
 │   └── win.png           # Win Image
-│   └── loose.png         # Loose Image
+│   └── failure.png       # Failure Image
+│   └── /characters       # Image for Characters
+│   └── /specialTiles     # Image for SpecialTiles Gadgets
 ├── package.json
 └── README.md
 ```
@@ -156,7 +184,8 @@ doraemon-dice-dimension/
 ```
 Positive Die: +6
 Negative Die: -3
-Net Movement: 6 - 3 = 3 squares FORWARD
+Net Movement: (Positive × 2) − Negative
+Example: (6 × 2) − 3 = 9 squares forward
 ```
 
 ### Movement Protocol
@@ -167,7 +196,7 @@ Net Movement: 6 - 3 = 3 squares FORWARD
 ### Gadget Point System
 
 - Start: 0 points (except Nobita: 1 point)
-- Anywhere Door: +1 point bonos
+- Anywhere Door: +1 point bonus
 - Victory: Highest points at Square 100 wins
 
 ## Contributing
@@ -179,6 +208,12 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+## ⚠️ Known Limitations
+
+- Desktop-only experience (1024px+)
+- No online multiplayer (local only)
+- No persistent save state
 
 ## License
 

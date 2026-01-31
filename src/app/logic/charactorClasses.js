@@ -12,7 +12,7 @@ class Character {
         this.name = name;
         this.abilities = abilities || "";
         this.tilePosition = 1;
-        this.no_of_gadgets = 0;
+        this.gadgets_points = 0;
         this.isPlaying = false;
         this.canUseAbility = false;
         this.steppedOnBigLight = false;
@@ -29,9 +29,6 @@ class Character {
             this.steppedOnBigLight = tile.type === "big-light";
             this.steppedOnSmallLight = tile.type === "small-light";
 
-            if (tile.type != "door" && tile.type != "rift") {
-                delete SPECIAL_TILES[currentPosition];
-            }
             return { "tileEffect": tile.type, "newPosition": this.tilePosition };
         }
     }
@@ -67,7 +64,7 @@ class Nobita extends Character {
         if (this.canUseAbility) {
             // Nobita's ability implementation
             this.tilePosition = Math.floor(Math.random() * 9) + 2;
-            this.no_of_gadgets = 1;
+            this.gadgets_points = 1;
             this.canUseAbility = false;
         }
     }
@@ -76,7 +73,7 @@ class Nobita extends Character {
 class Shizuka extends Character {
     constructor() {
         super("Shizuka", "Teleport any player ahead of her position to her current square thrice per game");
-        this.canUseAbility = true;
+        this.canUseAbility = false;
         this.timesAbilityUsed = 0;
         this.playerToTeleport = null;
     }
@@ -86,15 +83,19 @@ class Shizuka extends Character {
     }
 
     useAbility() {
-        if (this.canUseAbility && this.timesAbilityUsed < 3) {
-            // Shizuka's ability implementation
-            if (this.playerToTeleport != null && this.playerToTeleport.tilePosition > this.tilePosition) {
-                exchangePositions(this, this.playerToTeleport);
-            }
+        if (!this.canUseAbility) return;
 
-            this.timesAbilityUsed += 1;
-            if (this.timesAbilityUsed >= 3) this.canUseAbility = false;
+        if (
+            this.playerToTeleport &&
+            this.playerToTeleport.tilePosition > this.tilePosition
+        ) {
+            this.playerToTeleport.tilePosition = this.tilePosition;
         }
+
+        this.timesAbilityUsed++;
+
+        // auto-disable when exhausted
+        this.canUseAbility = this.timesAbilityUsed < 3;
     }
 }
 
@@ -128,9 +129,6 @@ class Gian extends Character {
                 this.useAbility();
             }
 
-            if (tile.type != "door" && tile.type != "rift") {
-                delete SPECIAL_TILES[currentPosition];
-            }
             return { "tileEffect": tile.type, "newPosition": this.tilePosition };
         }
     }
@@ -139,16 +137,17 @@ class Gian extends Character {
 class Suneo extends Character {
     constructor(maxCooldown = 5) {
         super("Suneo", "Nullify ONE Anywhere Door or Time Machine Rift effect directed at him per game and Starting Bonus: +1 Gadget Point");
-        this.no_of_gadgets = 1;
+        this.gadgets_points = 1;
         this.abilityCooldown = 0;  // turns left to cooldown
         this.maxCooldown = maxCooldown; // maximum cooldown in turns
-        this.canUseAbility = true;
-        this.positionBeforeRifted = 1;
+        this.canUseAbility = false;
+        this.positionBeforeRifted = null;
     }
     useAbility() {
-        if (this.canUseAbility && this.abilityCooldown <= 0) {
+        if (this.canUseAbility && this.abilityCooldown <= 0 && this.positionBeforeRifted !== null) {
             // Suneo's ability implementation
             this.tilePosition = this.positionBeforeRifted;
+            this.positionBeforeRifted = null;
 
             this.abilityCooldown = this.maxCooldown;
             this.canUseAbility = false;
@@ -160,7 +159,7 @@ class Suneo extends Character {
         if (this.steppedOnSmallLight) movement = Math.floor(movement / 2);
 
         this.abilityCooldown = Math.max(0, this.abilityCooldown - 1);
-        if (this.abilityCooldown === 0) {
+        if (this.abilityCooldown === 0 && this.positionBeforeRifted && this.positionBeforeRifted !== this.tilePosition) {
             this.canUseAbility = true;
         }
 
@@ -188,11 +187,11 @@ class Suneo extends Character {
 
             if (tile.type === "rift") {
                 this.positionBeforeRifted = currentPosition;
+                if (this.abilityCooldown === 0) {
+                    this.canUseAbility = true;
+                }
             }
 
-            if (tile.type != "door" && tile.type != "rift") {
-                delete SPECIAL_TILES[currentPosition];
-            }
             return { "tileEffect": tile.type, "newPosition": this.tilePosition };
         }
     }
@@ -201,7 +200,7 @@ class Suneo extends Character {
 class Dekisugi extends Character {
     constructor(maxCooldown = 5) {
         super("Dekisugi", "Can multiply his dice roll result by -1 to reverse the outcome Usage: Unlimited activations per mission (Cooldown: 5 turn)");
-        this.abilityCooldown = maxCooldown;  // turns left to cooldown
+        this.abilityCooldown = 0;  // turns left to cooldown
         this.maxCooldown = maxCooldown; // maximum cooldown in turns
         this.canUseAbility = true;
     }

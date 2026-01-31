@@ -16,11 +16,16 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Doraemon Dice Dimension",
   description: "Doraemon Dice Dimension is a wildly unpredictable reimagining of the classic board game Snakes and Ladders. Inspired by the beloved anime Doraemon , this game introduces time-warping gadgets, dual-dice chaos, and strategic unpredictability into a nostalgic childhood favorite.",
+  icons: {
+    icon: "/characters/doraemon.png",
+    shortcut: "/characters/doraemon.png",
+    apple: "/characters/doraemon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-full h-full`}
       >

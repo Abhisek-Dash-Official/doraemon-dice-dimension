@@ -105,7 +105,7 @@ export default function CharectorInfo({ charectorName }) {
             <span className="text-yellow-300 font-semibold">Ability:</span>{" "}
             Financial Override
           </p>
-          <p>Nullify ONE Anywhere Door or Time Machine Rift</p>
+          <p>Nullify ONE Time Machine Rift</p>
           <InfoBox
             color="yellow"
             icon={<Shield />}
@@ -141,7 +141,7 @@ export default function CharectorInfo({ charectorName }) {
           <InfoBox
             color="indigo"
             icon={<Zap />}
-            text="Unlimited activations per mission (Cooldown: 5 turn"
+            text="Unlimited activations per mission (Cooldown: 5 turn)"
           />
         </div>
       </div>

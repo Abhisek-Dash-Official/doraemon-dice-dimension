@@ -25,6 +25,7 @@ export default function DesktopOnlyWrapper({ children }) {
 
   if (isLoading) {
     return <div className="min-h-screen bg-linear-to-br from-blue-400 via-cyan-300 to-blue-500 flex items-center justify-center p-6 relative overflow-hidden">
+
       {/* Animated background clouds */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-10 w-32 h-16 bg-white rounded-full animate-bounce" style={{ animationDuration: '3s' }}></div>
@@ -36,8 +37,10 @@ export default function DesktopOnlyWrapper({ children }) {
         {/* Doraemon character (simplified) */}
         <div className="mb-8 relative inline-block">
           <div className="w-32 h-32 bg-blue-500 rounded-full mx-auto relative shadow-2xl border-4 border-blue-600 animate-pulse">
+
             {/* Face */}
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-24 h-20 bg-white rounded-full"></div>
+
             {/* Eyes */}
             <div className="absolute top-8 left-8 w-8 h-10 bg-white rounded-full border-2 border-black">
               <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-black rounded-full"></div>
@@ -45,13 +48,16 @@ export default function DesktopOnlyWrapper({ children }) {
             <div className="absolute top-8 right-8 w-8 h-10 bg-white rounded-full border-2 border-black">
               <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-black rounded-full"></div>
             </div>
+
             {/* Nose */}
             <div className="absolute top-16 left-1/2 -translate-x-1/2 w-4 h-4 bg-red-500 rounded-full"></div>
+
             {/* Whiskers */}
             <div className="absolute top-20 left-2 w-8 h-0.5 bg-black"></div>
             <div className="absolute top-22 left-2 w-8 h-0.5 bg-black"></div>
             <div className="absolute top-20 right-2 w-8 h-0.5 bg-black"></div>
             <div className="absolute top-22 right-2 w-8 h-0.5 bg-black"></div>
+
             {/* Bell */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-6 bg-yellow-400 rounded-full border-2 border-yellow-600"></div>
           </div>
@@ -79,7 +85,7 @@ export default function DesktopOnlyWrapper({ children }) {
           Reach square 100 where Doraemon is waiting! ✨
         </p>
       </div>
-    </div>;
+    </div>
   }
 
   // Show desktop-only message if not desktop
